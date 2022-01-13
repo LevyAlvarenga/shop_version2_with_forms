@@ -6,9 +6,9 @@ import 'package:shop/utils/app_routes.dart';
 
 class ProductItem extends StatelessWidget {
   final Product product;
-  const ProductItem({
+  const ProductItem(
+    this.product, {
     Key? key,
-    required this.product,
   }) : super(key: key);
 
   @override
@@ -16,6 +16,7 @@ class ProductItem extends StatelessWidget {
     return ListTile(
       leading: CircleAvatar(
         backgroundImage: NetworkImage(product.imageUrl),
+        backgroundColor: Color.fromARGB(255, 186, 85, 211),
       ),
       title: Text(product.name),
       trailing: Container(
@@ -24,7 +25,10 @@ class ProductItem extends StatelessWidget {
           children: [
             IconButton(
               icon: Icon(Icons.edit),
-              color: Theme.of(context).primaryColor,
+              // color: Theme.of(context).primaryColor,
+              color: Colors.purple,
+              // color:ThemeData(primaryIconTheme: Colors.purple),
+
               onPressed: () {
                 Navigator.of(context).pushNamed(
                   AppRoutes.PRODUCT_FORM,
